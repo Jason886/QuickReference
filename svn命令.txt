@@ -1,0 +1,44 @@
+0. 创建分支
+	svn cp -m "填写log" src_path dst_path (均为服务器路径)
+	说明: 创建一个src_path的分支,创建到dst_path.
+	例如: svn cp -m "blablabla" svn://192.168.1.1/pro/domain svn://192.168.1.1/branches/domain_blablabla
+
+1. checkout到本地
+	svn co path (path是服务器上的路径)
+	例如: svn co svn://192.168.1.1/pro/domain
+
+2. 更新至最新版本
+	svn up path (path是本地路径)
+	例如: svn up (更新当前目录)
+		  svn up hello (更新./hello目录)
+		  svn up hello/my.php (更新./hello/my.php文件)
+
+3. 添加到版本库
+	svn add file (可添加多个file,支持通配符)
+	例如: svn add hello/*.php (将hello目录下的所有.php文件添加到版本库)
+
+4. 移除出版本库
+	svn remove path (path为本地路径)
+	例如: svn remove hello (将hello目录移出版本库)
+
+5. 将本地改动提交
+	svn ci -m "填写log" path (path是本地路径)
+	例如: svn ci -m "修改了一些东东" hello (将hello目录下的所有修改提交)
+
+
+6. 查看文件或目录状态
+	svn status path (path是本地路径)
+	例如: svn status . (查看当前目录的svn状态)
+	标记: 
+		? 不在svn控制中
+		M 内容被修改
+		A 加入版本库,未提交
+		D 移出版本库,未提交
+		! 文件删除
+		C 发生冲突
+
+7. 查看文件差异
+	svn diff file (显示本地对file做了哪些修改)
+
+8. 查看版本库信息
+	svn info
